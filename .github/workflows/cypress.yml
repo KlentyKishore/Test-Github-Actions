@@ -1,0 +1,25 @@
+name: KK-Lab
+
+on:
+  schedule:
+    - cron: '0 /2 * * *'
+  workflow_dispatch:
+    inputs:
+      optionInput:
+        description: 'Do you want to run cypress test ?'
+        required: true
+        default: 'yes'
+        options: ['yes', 'no']
+
+jobs:
+  run_cypress_tests:
+    runs-on: ubuntu-latest
+    name: test cypress
+    continue-on-error: true
+    steps:
+      - name: Run Cypress Test (Manual)
+        if: ${{ github.event.inputs.optionInput == 'yes' }}
+        run: echo "This is Manual run "
+      - name: Run Cypress Test (Schedule)
+        if: ${{ github.event_name == 'schedule' }}
+        run: echo "This is schedule run "
