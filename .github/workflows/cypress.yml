@@ -2,7 +2,7 @@ name: KK-Lab
 
 on:
   schedule:
-    - cron: '*/2 * * * *'
+    - cron: '* * * * *'
   workflow_dispatch:
     inputs:
       optionInput:
