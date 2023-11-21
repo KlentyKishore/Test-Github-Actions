@@ -3,13 +3,6 @@ name: KK-Lab
 on:
   schedule:
     - cron: '* * * * *'
-  workflow_dispatch:
-    inputs:
-      optionInput:
-        description: 'Do you want to run cypress test ?'
-        required: true
-        default: 'yes'
-        options: ['yes', 'no']
 
 jobs:
   run_cypress_tests:
